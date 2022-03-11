@@ -14,10 +14,12 @@
 
 .formContainer02 {
     padding: 25px; 
-    background-color: rgb(65, 65, 65);
+    background-color: white; 
+    border: 20px solid rgb(65, 65, 65);
     width: 900px;
     /* height: 400px;  */
     margin: 10px; 
+    display: flex; 
 }
 
 .formContainer03 {
@@ -187,9 +189,14 @@ body {
     padding: 5px;
 }
 
+.horizBlock {
+    flex: 1; 
+    margin: 10px; 
+}
 .studentTbl {
     table-layout: auto;
 }
+
 .studentTblHdr, .studentTblData {
     font-size: 15px;
     font-family: Arial, Verdana, sans-serif;

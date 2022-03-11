@@ -6,7 +6,7 @@
 
 #below added, MVC: 
 from flaskApp import app
-from flaskApp.controllers import user_ctrl
+from flaskApp.controllers import dojo_ctrl
 
 # below is flask boiler plate; exclude it and stuff won't work    
 if __name__=="__main__":   # Ensure this file is being run directly and not from a different module    
