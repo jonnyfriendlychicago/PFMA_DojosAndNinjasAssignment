@@ -14,148 +14,34 @@
     </div>
 
     <div id="container">
+
+    </div>
+
+        <div class="formContainer02">
+            <a href="/" >Home</a> 
+            <h2>Dojo Profile</h2>
+            <h2>ID: <span style= "color: black;">  {{display_allDojoNinjas.id}} </span></h2>
+            <h2>DojoName: <span style= "color: black;">  {{display_allDojoNinjas.dojoName}} </span></h2>
+        </div>
+
         <div class="row001"> 
             <div class="formContainer02">
-                <h2>Dojo Profile</h2>
-                <h2>ID: <span style= "color: black;">  {{display_dojoProfile.id}} </span></h2>
-                <h2>DojoName: <span style= "color: black;">  {{display_dojoProfile.dojoName}} </span></h2>
-            </div>
-
-            <div class="formContainer02">
                 <div class="horizBlock"> 
-                    <h2>Students List</h2>
+                    <h1>DojoName: {{display_allDojoNinjas.dojoName}}</h1>
+                    <h2>This Dojos' students</h2>
                     <table class="studentTbl">  
                         <tr>
                             <th class="studentTblHdr">Student Name</th>
                         </tr>
-                        {% for row in display_allDojos %}
+                        {% for row in display_allDojoNinjas.dojoNinjaList %}
                         <tr> 
-                            <td class="studentTblData">{{row.dojoName}}</td>
+                            <td class="studentTblData">{{row.firstName}}</td>
                         </tr>
                         {% endfor %}    
                     </table>
                 </div>  
-                
-            </div>
+            </div> 
         </div>   
-
-        
-        <!-- <a href="/addNewDojo" class="btn btn-secondary">Add New Dojo</a> gotta remember here that the /addNewUser is NOT a reg'ole url; it's a route from the PY server -->
-<!-- 
-        <div class="row001"> 
-                <div class="vertForm">
-                    <h2>Add a User</h2>
-                    <form class="vertForm" action="/create_user" method="POST">
-                        <label for="frm_firstName">First Name:</label>
-                        <input type="text" name="frm_firstName">
-
-                        <label for="frm_lastName">Last Name:</label>
-                        <input type="text" name="frm_lastName">
-
-                        <label for="frm_email">email:</label>
-                        <input type="text" name="frm_email">
-
-                        <input type="submit" value="Add Friend">
-                    </form> 
-                </div>
-                 -->
-<!-- 
-                <div class="formContainer01">
-                    <p class="formLabels">Farmville</p>
-                    <form action="/processMoney" method="post">
-                        <input type="hidden" name="which_form" value="transType1">
-                        <button class="btn btn-primary btn-lg btn-block" type="submit">Get $$$</button>
-                        <p class="formLabels">Adds 20</p>
-                    </form>
-                </div>
-                 -->
-<!-- 
-            <div class="formContainer01">
-                <p class="formLabels">Cavern</p>
-                <form action="/processMoney" method="post">
-                    <input type="hidden" name="which_form" value="transType2">
-                    <button class="btn btn-primary btn-lg btn-block" type="submit">Get $$$</button>
-                    <p class="formLabels">Adds 40</p>
-                </form>
-            </div>
-
-            <div class="formContainer01">
-                <form action="/processMoney" method="post">
-                    <input type="hidden" name="which_form" value="transTypeReset">
-                    <button class="btn btn-danger" type="submit">Start Over</button>
-                </form>
-            </div>
-             -->
-<!--         
-            <div class="formContainer01">
-                <p class="formLabels">Activity Log</p>
-                {% for i in session.transactionsDetailsList: %}
-                <p class="formLabels">
-                {{i}}
-                </p>
-                {%endfor%}   
-            </div> -->
-
-            <!-- <div class="formContainer01">
-                <table class="studentTbl">  
-                    <tr>
-                        <th class="studentTblHdr">Location</th>
-                        <th class="studentTblHdr">Amount</th>
-                    </tr>
-                    {% for s in session.StudentInfoList %}
-                    <tr> 
-                        <td class="studentTblData">{{s['loc']}}</td>
-                        <td class="studentTblData">{{s['amt']}}</td>
-                    </tr>
-                    {% endfor %}    
-                </table>
-            </div>   -->
-
-        </div> 
-<!-- 
-        <div class="row001"> 
-            <div class="formContainer01"> 
-                <h2>Dojo Survey</h2>
-                <form action="/submissionSuccess" method="post">
-                    <div class="formSelectSameLine">
-                        <label class="formLabels" for="yourName">Your Name:</label>
-                        <input class="inputTextOneLiner" type="text" name="yourName" placeholder="type it here, man" value="">
-                    </div>
-                    <div class="formSelectSameLine">
-                        <p class="formLabels">Dojo Location:</p>
-                        <select name="dojoLocation"> 
-                            <option value="San Jose, CA">San Jose, CA</option>
-                            <option value="Chicago, IL">Chicago, IL</option>
-                            <option value="New York, NY">New York, NY</option>
-                        </select>
-                    </div>
-                    
-                    <div class="formSelectSameLine">
-                        <p class="formLabels">Favorite Language:</p>
-                        <select name="favoriteLanguage"> 
-                            <option value="Python">Python</option>
-                            <option value="Java">Java</option>
-                            <option value=".net">.net</option>
-                        </select>
-                    </div>
-
-                    <div class="formSelectSameLine">
-                        <p class="formLabels">Favorite Dojo TA(s):</p>                        
-                        <input type="checkbox" name="favoriteDojoTa" value="Mel-B"/>
-                        <label class="formLabels">Mel-B</label>
-                        <input type="checkbox" name="favoriteDojoTa" value="Brandon-C"/>
-                        <label class="formLabels">Brandon-C</label>
-                    </div> 
-                    
-                    <p class="formLabels">Comment (optional):</p>
-                    <textarea class="inputTextArea" name="comment" placeholder="Enter comments..."></textarea>  
-                    <input class="inputTextOneLiner" type="text" name="yourName" placeholder="type it here, man" value=""> 
-                    
-                    <button class="btn btn-primary btn-lg btn-block" type="submit">Submit</button>
-                </form>
-            </div>
-        </div>
--->
     </div>
 </body>
 </html>
