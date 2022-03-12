@@ -20,8 +20,6 @@ class Ninja_cls:
 
 
 
-
-
     """ get all dojo records from db"""
     @classmethod 
     def get_allx(cls):

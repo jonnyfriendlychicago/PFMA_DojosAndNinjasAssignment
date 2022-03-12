@@ -18,6 +18,7 @@ class Dojo_cls:
         dojoList = [] 
         for rec in rez:
             dojoList.append(cls(rec))
+        print(dojoList)
         return dojoList
 
     @classmethod 

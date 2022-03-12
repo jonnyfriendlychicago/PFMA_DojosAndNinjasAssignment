@@ -10,7 +10,7 @@ from flaskApp.models.dojo_mod import Dojo_cls
 #     allDojos = Dojo_cls.get_all()
 #     return render_template("index.html", display_allDojos = allDojos)
 
-""" ADD NEW Dojo """
+""" ADD NEW ninja """
 @app.route('/addNewNinja')
 def addNewNinja():
     allDojos = Dojo_cls.get_all()
@@ -25,9 +25,36 @@ def createNinja():
         "clr_age" : request.form["frm_age"] , 
         "clr_dojo_id" : request.form["frm_dojo_id"]
         }
+    # dojo_id = data.clr_dojo_id
     id = Ninja_cls.saveNinja(data) # creates variable... 'id' ... = that we'll use in next line (represents the ID of newly created record.... oh, and runs the "save" method from server.py)
     # return redirect('/DojoProfile/' + str(id)) 
-    return redirect('/') 
+    # return redirect('/') 
+    return redirect(f"/dojoProfile/{data['clr_dojo_id']}")
+
+""" ADD NEW ninja -- dojolocked! """
+@app.route('/addNewNinjaDojoLocked')
+def addNewNinjaDojoLocked():
+    allDojos = Dojo_cls.get_all()
+    return render_template("addNewNinjaDojoLocked.html", display_allDojos = allDojos)
+
+""" Route invoked on the Add New Ninja page """
+@app.route('/createNinjaDojoLocked', methods=["POST"])
+def createNinjaDojoLocked():
+    data = { # this creates cleared variables, containing cleansed incoming data from the form
+        "clr_firstName": request.form["frm_firstName"], 
+        "clr_lastName" : request.form["frm_lastName"],
+        "clr_age" : request.form["frm_age"] , 
+        "clr_dojo_id" : request.form["frm_dojo_id"]
+        }
+    # dojo_id = data.clr_dojo_id
+    id = Ninja_cls.saveNinja(data) # creates variable... 'id' ... = that we'll use in next line (represents the ID of newly created record.... oh, and runs the "save" method from server.py)
+    # return redirect('/DojoProfile/' + str(id)) 
+    # return redirect('/') 
+    return redirect(f"/dojoProfile/{data['clr_dojo_id']}")
+
+
+
+
 
 # @app.route('/dojoProfile')
 # def index():

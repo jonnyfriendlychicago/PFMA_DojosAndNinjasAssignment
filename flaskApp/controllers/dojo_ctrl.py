@@ -20,9 +20,6 @@ def dojoIndex():
 def createDojo():
     data = { # this creates cleared variables, containing cleansed incoming data from the form
         "clr_dojoName": request.form["frm_dojoName"]
-        # ,
-        # "clr_lastName" : request.form["frm_lastName"],
-        # "clr_email" : request.form["frm_email"]
         }
     id = Dojo_cls.save(data) # creates variable... 'id' ... = that we'll use in next line (represents the ID of newly created record.... oh, and runs the "save" method from server.py)
     # return redirect('/DojoProfile/' + str(id)) 
@@ -44,11 +41,7 @@ def dojoProfile(id):
     
     # allDojos = Dojo_cls.get_all()
     allDojoNinjas = Dojo_cls.getDojoWithStudents(data) 
-    return render_template("DojoProfile.html"
-    # , display_dojoProfile = dojoProfile
-    # , display_allDojos = allDojos
-    , display_allDojoNinjas = allDojoNinjas
-    )
+    return render_template("DojoProfile.html" , display_allDojoNinjas = allDojoNinjas)
 
 # """ route engaged by the 'edit' button on the DojoProfile.html page"""
 # @app.route('/DojoProfile/<int:id>/edit')
