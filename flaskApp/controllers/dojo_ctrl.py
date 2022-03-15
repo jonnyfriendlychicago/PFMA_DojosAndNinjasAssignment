@@ -25,13 +25,6 @@ def createDojo():
     # return redirect('/DojoProfile/' + str(id)) 
     return redirect('/') 
 
-# @app.route('/dojoProfile')
-# def index():
-#     allDojos = Dojo_cls.get_all()
-#     return render_template("dojoProfile.html", display_allDojos = allDojos)
-
-
-"""route invoked by the redirect immediately above"""
 @app.route('/dojoProfile/<int:id>')
 def dojoProfile(id):
     data = {
